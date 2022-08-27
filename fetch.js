@@ -9,15 +9,15 @@ fetch(url)
 
 const loadData = (todos) =>{
     for(const todo of todos){
-        const list = document.createElement('li');
-        const completedTask = todo.completed ? "Done":"Not Yet";
+        const div = document.createElement('div');
+        div.classList.add('mx-auto','w-50','bg-dark', 'p-4', 'my-2', 'rounded','text-white', 'text-bold');
+        const completedTask = todo.completed ? "Done":"Pending";
         const temp = `
-       <h5> ${todo.id} </h5>
-       <h5> ${todo.userId} </h5>
-       <h5> ${todo.title} </h5>
-       <h5> ${completedTask} </h5>
+       <h5 class = 'text-cneter'> Todo No: ${todo.id} </h5>
+       <h3> ToDo Title : ${todo.title} </h3>
+       <h3> ToDo Status : ${completedTask} </h3>
        `
-       list.innerHTML = temp;
-       container.appendChild(list);
+       div.innerHTML = temp;
+       container.appendChild(div);
     }
 }
