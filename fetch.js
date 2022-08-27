@@ -4,20 +4,20 @@ console.log("Connected")
 const url = 'https://jsonplaceholder.typicode.com/todos';
 fetch(url)
 .then(res=>res.json())
-.then(res=>{ 
-    // console.log(x)
-    for(let y of res){
-        const createList = document.createElement('div');
+.then(data=>loadData (data));
+
+
+const loadData = (todos) =>{
+    for(const todo of todos){
+        const list = document.createElement('li');
+        const completedTask = todo.completed ? "Done":"Not Yet";
         const temp = `
-        ${y.id}
-        ${y.userId}
-        ${y.title}
-        ${y.completed}
-        `;
-       const element =  createList.appendChild = temp;
-       container.append(element);
-        console.log(y)
+       <h5> ${todo.id} </h5>
+       <h5> ${todo.userId} </h5>
+       <h5> ${todo.title} </h5>
+       <h5> ${completedTask} </h5>
+       `
+       list.innerHTML = temp;
+       container.appendChild(list);
     }
 }
-    );
-
